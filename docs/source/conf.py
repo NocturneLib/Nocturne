@@ -30,8 +30,8 @@ templates_path = ['_templates']
 # -- Options for HTML output -------------------------------------------------
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    # This changes the header background to black
-    'style_nav_header_background': '#000000',
+    # Override the navigation header background to match our dark theme
+    'style_nav_header_background': '#1C1C1C',
 }
 html_static_path = ['_static']
 html_css_files = [
@@ -40,15 +40,20 @@ html_css_files = [
 
 # -- Custom CSS Setup -----------
 css_content = """
-/* Custom Black and Gold Theme */
+/* Custom Nocturne Theme for ReadTheDocs */
 
-/* Base Body Styling */
+/* Overall background for all pages */
 body {
-    background-color: #000000;
+    background-color: #1C1C1C;
     color: #D4AF37;
 }
 
-/* Links */
+/* Remove any default white backgrounds from main containers */
+.document, .rst-content, .wy-nav-content {
+    background-color: #1C1C1C;
+}
+
+/* Links using gold and removing blue/purple defaults */
 a {
     color: #D4AF37;
 }
@@ -56,12 +61,12 @@ a:hover, a:focus {
     color: #ffffff;
 }
 
-/* Navbar/Header */
+/* Navbar/Header Styling */
 .rtd-navbar, .wy-nav-side, .wy-menu-vertical {
-    background-color: #000000;
+    background-color: #1C1C1C;
 }
 
-/* Sidebar links */
+/* Sidebar links styling */
 .wy-menu-vertical a, .wy-menu-vertical a:visited {
     color: #D4AF37;
 }
@@ -71,21 +76,27 @@ a:hover, a:focus {
 
 /* Code blocks */
 .highlight pre {
-    background: #1a1a1a;
+    background: #2E2E2E;
     color: #D4AF37;
 }
 
 /* Tables */
 table.docutils {
     border: 1px solid #D4AF37;
+    background-color: #1C1C1C;
 }
 table.docutils th, table.docutils td {
     border: 1px solid #D4AF37;
 }
 
-/* Section breaks */
-.section {
-    border-bottom: 1px solid #D4AF37;
+/* Section breaks and other elements */
+.section, .sidebar {
+    border-color: #D4AF37;
+}
+
+/* Remove any potential purple or blue accents */
+a.reference, .headerlink {
+    color: #D4AF37;
 }
 """
 
@@ -105,3 +116,4 @@ def setup(app):
 
 # -- Options for EPUB output -------------------------------------------------
 epub_show_urls = 'footnote'
+5
